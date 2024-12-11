@@ -3,11 +3,11 @@ import React, { CSSProperties, MouseEventHandler, ReactNode } from "react";
 
 interface ButtonProps {
   type: "button" | "link";
-  isExternal: boolean;
-  isDisabled: boolean;
-  isLoading: boolean;
-  href: string;
-  className: string[];
+  isExternal?: boolean;
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  href?: string;
+  className?: string[];
   title?: string;
   style?: string;
   target?: string;
@@ -30,9 +30,9 @@ export default function Button({
   children,
 }: ButtonProps) {
   if (isDisabled || isLoading) {
-    if (isDisabled) className.push("disabled");
+    if (isDisabled) className?.push("disabled");
     return (
-      <span className={className.join(" ")} style={style as CSSProperties}>
+      <span className={className?.join(" ")} style={style as CSSProperties}>
         {isLoading ? (
           <>
             <span className={`spinner-border spinner-border-sm`} role="status">
@@ -51,7 +51,7 @@ export default function Button({
       return (
         <a
           href={href}
-          className={className.join(" ")}
+          className={className?.join(" ")}
           style={style as CSSProperties}
           title={title}
           target={target}
@@ -63,8 +63,8 @@ export default function Button({
     } else {
       return (
         <Link
-          className={className.join(" ")}
-          href={href}
+          className={className?.join(" ")}
+          href={href || ""}
           style={style as CSSProperties}
           onClick={onClickA}
         >
@@ -77,7 +77,7 @@ export default function Button({
   return (
     <button
       title={title}
-      className={className.join(" ")}
+      className={className?.join(" ")}
       style={style as CSSProperties}
       onClick={
         onClickButton && typeof onClickButton === "function"
@@ -85,7 +85,7 @@ export default function Button({
           : undefined
       }
     >
-      children
+      {children}
     </button>
   );
 }
