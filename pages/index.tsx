@@ -72,10 +72,10 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {users.map((item: userType, index) => (
-                    <tr key={index}>
-                      <th scope="row">{index + 1}</th>
-                      <td>{item.name}</td>
-                      <td>{item.birthdate}</td>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
                       <td>
                         <td>
                           <Button
