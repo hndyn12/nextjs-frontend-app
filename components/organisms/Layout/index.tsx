@@ -2,10 +2,10 @@ import React from "react";
 import Nav from "../Nav";
 import Sidebar from "../Sidebar";
 
-interface LayoutProbs {
-  childern: React.ReactNode;
+interface LayoutProps {
+  children: React.ReactNode;
 }
-export default function Layout({ childern }: LayoutProbs) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <div className="sb-nav-fixed">
@@ -13,7 +13,7 @@ export default function Layout({ childern }: LayoutProbs) {
         <div id="layoutSidenav">
           <Sidebar />
           <div id="layoutSidenav_content">
-            <main>{childern}</main>
+            <main>{children}</main>
           </div>
         </div>
       </div>
